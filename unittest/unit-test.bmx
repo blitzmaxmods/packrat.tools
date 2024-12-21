@@ -11,11 +11,8 @@
 'Import packrat.tools
 Import "../tools.bmx"
 
-'import unit.testing
-Import "../../unit.testing/testing.bmx"
-
-'	Set the column widths for this test
-UnitTest.setTab( [3,5,32,30] )	
+Import unit.testing
+'Import "../../unit.testing/testing.bmx"
 
 '	Set up some local variables
 Local pattern:TPattern
@@ -24,8 +21,9 @@ Local hexdigit:TPattern = CHARSET( "0-9A-Fa-f" )
 Local grammar:TGrammar = New TGrammar( "TEST", "TEST", True )
 grammar["DIGIT"] = digit
 
-'	DRAW A HEADING
+'	PREPARE THE TEST TABLE
 
+Local UnitTest:TUnitTest = New TUnitTest( [3,5,32,30] )	
 unittest.heading( "PATTERNS" )
 unittest.write( ["ID","STATE","NAME","RESULT"] )
 unittest.break()
